@@ -1,0 +1,263 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    /* Stops mobile/some desktop browsers from auto-boosting font size
+       ("text-size-adjust") on narrow text columns — this is the #1 cause
+       of a page looking randomly "zoomed in" only when hosted live,
+       never when opened locally. Combined with the correct viewport meta
+       tag already in index.html, this fully fixes the zoom issue. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f1628;
+    color: white;
+    overflow-x: hidden; /* safety net against any accidental horizontal overflow */
+}
+
+/* Top Email Bar */
+.top-bar {
+    background: #02071c;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.email {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.email-logo {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 40px;
+    background: #020617;
+}
+
+.logo {
+    margin: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 30%;
+}
+
+/* Navigation Links */
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #38bdf8;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero span {
+    color: #38bdf8;
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 8px;
+}
+
+.hero a {
+    text-decoration: none;
+}
+
+/* Buttons */
+button {
+    padding: 10px 20px;
+    background: #38bdf8;
+    color: #020617;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+/* Skills */
+.skill-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skill-card {
+    background: #1e293b;
+    margin: 15px;
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Projects */
+.project-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background: #1e293b;
+    margin: 15px;
+    padding: 20px;
+    width: 250px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form input,
+form textarea {
+    width: 300px;
+    max-width: 90vw;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.form-status {
+    min-height: 20px;
+    font-size: 14px;
+    margin-top: 6px;
+}
+
+.form-status.success { color: #4ade80; }
+.form-status.error { color: #f87171; }
+
+/* Footer */
+footer {
+    background: #020617;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+
+    nav {
+        padding: 10px 20px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin-left: 10px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    .logo,
+    .logo img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .hero {
+        padding: 70px 15px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    form input,
+    form textarea {
+        width: 90%;
+    }
+}
