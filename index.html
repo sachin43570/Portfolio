@@ -1,1017 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Sachin Maurya | Portfolio</title>
-
-
-    <!-- Fonts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet"
-    >
-
-
-    <!-- Main stylesheet -->
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sachin Maurya | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
 
+<!-- Custom cursor -->
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="cursor-dot" aria-hidden="true"></div>
 
-<!-- =========================================================
-     CUSTOM CURSOR
-     ========================================================= -->
-
-<div
-    class="cursor-glow"
-    aria-hidden="true"
-></div>
-
-<div
-    class="cursor-dot"
-    aria-hidden="true"
-></div>
-
-
-
-<!-- =========================================================
-     FILM GRAIN
-     ========================================================= -->
-
-<svg
-    class="grain-overlay"
-    aria-hidden="true"
->
-
-    <filter id="grainFilter">
-
-        <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.85"
-            numOctaves="2"
-            stitchTiles="stitch"
-        />
-
-        <feColorMatrix
-            type="saturate"
-            values="0"
-        />
-
-    </filter>
-
-    <rect
-        width="100%"
-        height="100%"
-        filter="url(#grainFilter)"
-    />
-
+<!-- Film grain -->
+<svg class="grain-overlay" aria-hidden="true">
+  <filter id="grainFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grainFilter)"/>
 </svg>
 
-
-
-<!-- =========================================================
-     PCB BACKGROUND
-     ========================================================= -->
-
-<svg
-    class="pcb-bg"
-    viewBox="0 0 1440 1600"
-    preserveAspectRatio="xMidYMin slice"
-    aria-hidden="true"
->
-
-    <g class="pcb-traces">
-
-        <path d="M -50 120 H 300 V 340 H 700 V 90 H 1100 V 400" />
-
-        <path d="M 1500 260 H 1150 V 560 H 780 V 780 H 420 V 520 H -50" />
-
-        <path d="M -50 720 H 220 V 980 H 600 V 1180 H 980 V 940 H 1500" />
-
-        <path d="M 1500 1120 H 1200 V 1360 H 860 V 1560 H 500 V 1400 H -50" />
-
-    </g>
-
-
-    <g class="pcb-vias">
-
-        <circle cx="300" cy="120" r="5" />
-        <circle cx="700" cy="340" r="5" />
-        <circle cx="1100" cy="90" r="5" />
-
-        <circle cx="1150" cy="260" r="5" />
-        <circle cx="780" cy="560" r="5" />
-        <circle cx="420" cy="780" r="5" />
-
-        <circle cx="220" cy="720" r="5" />
-        <circle cx="600" cy="980" r="5" />
-        <circle cx="980" cy="1180" r="5" />
-
-        <circle cx="1200" cy="1120" r="5" />
-        <circle cx="860" cy="1360" r="5" />
-        <circle cx="500" cy="1560" r="5" />
-
-    </g>
-
+<!-- PCB background -->
+<svg class="pcb-bg" viewBox="0 0 1440 1600" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
+  <g class="pcb-traces">
+    <path d="M -50 120 H 300 V 340 H 700 V 90 H 1100 V 400"/>
+    <path d="M 1500 260 H 1150 V 560 H 780 V 780 H 420 V 520 H -50"/>
+    <path d="M -50 720 H 220 V 980 H 600 V 1180 H 980 V 940 H 1500"/>
+    <path d="M 1500 1120 H 1200 V 1360 H 860 V 1560 H 500 V 1400 H -50"/>
+  </g>
+  <g class="pcb-vias">
+    <circle cx="300" cy="120" r="5"/><circle cx="700" cy="340" r="5"/><circle cx="1100" cy="90" r="5"/>
+    <circle cx="1150" cy="260" r="5"/><circle cx="780" cy="560" r="5"/><circle cx="420" cy="780" r="5"/>
+    <circle cx="220" cy="720" r="5"/><circle cx="600" cy="980" r="5"/><circle cx="980" cy="1180" r="5"/>
+    <circle cx="1200" cy="1120" r="5"/><circle cx="860" cy="1360" r="5"/><circle cx="500" cy="1560" r="5"/>
+  </g>
 </svg>
 
-
-
-<!-- =========================================================
-     ROBOT ASSISTANT
-     ========================================================= -->
-
-<div
-    class="portfolio-bot"
-    id="portfolioBot"
->
-
-
-    <!-- Robot -->
-
-    <div class="robot">
-
-
-        <!-- Antenna -->
-
-        <div class="robot-antenna">
-
-            <span></span>
-
-        </div>
-
-
-        <!-- Head -->
-
-        <div class="robot-head">
-
-            <span class="robot-eye"></span>
-
-            <span class="robot-eye"></span>
-
-        </div>
-
-
-        <!-- Neck -->
-
-        <div class="robot-neck"></div>
-
-
-        <!-- Body -->
-
-        <div class="robot-body">
-
-            <div class="robot-core"></div>
-
-        </div>
-
-
-        <!-- Arms -->
-
-        <div class="robot-arm robot-arm-left"></div>
-
-        <div class="robot-arm robot-arm-right"></div>
-
-    </div>
-
-
-    <!-- Robot speech -->
-
-    <div class="robot-speech">
-
-        <span id="robotText">
-            Hi! I'm Sachin's portfolio assistant.
-        </span>
-
-    </div>
-
+<!-- Robot assistant -->
+<div class="portfolio-bot" id="portfolioBot">
+  <div class="robot">
+    <div class="robot-antenna"><span></span></div>
+    <div class="robot-head"><span class="robot-eye"></span><span class="robot-eye"></span></div>
+    <div class="robot-neck"></div>
+    <div class="robot-body"><div class="robot-core"></div></div>
+    <div class="robot-arm robot-arm-left"></div>
+    <div class="robot-arm robot-arm-right"></div>
+  </div>
+  <div class="robot-speech"><span id="robotText">Hi! I'm Sachin's portfolio assistant.</span></div>
 </div>
 
-
-
-<!-- =========================================================
-     HEADER
-     ========================================================= -->
-
+<!-- Header -->
 <header>
-
-
-    <!-- Email bar -->
-
-    <div class="top-bar">
-
-        <div class="email">
-
-
-            <svg
-                class="email-logo"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-
-                <rect
-                    width="24"
-                    height="24"
-                    rx="6"
-                    fill="#C9824C"
-                />
-
-                <path
-                    d="M5 8l7 5 7-5"
-                    stroke="#0A0D11"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-
-                <rect
-                    x="5"
-                    y="6.5"
-                    width="14"
-                    height="11"
-                    rx="1.5"
-                    stroke="#0A0D11"
-                    stroke-width="1.8"
-                />
-
-            </svg>
-
-
-            <span>
-                sachinmaurya43570@gmail.com
-            </span>
-
-        </div>
-
+  <div class="top-bar">
+    <div class="email">
+      <svg class="email-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" rx="6" fill="#C9824C"/>
+        <path d="M5 8l7 5 7-5" stroke="#0A0D11" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="5" y="6.5" width="14" height="11" rx="1.5" stroke="#0A0D11" stroke-width="1.8"/>
+      </svg>
+      <a href="mailto:sachinmaurya43570@gmail.com" class="email-link">sachinmaurya43570@gmail.com</a>
     </div>
-
-
-
-    <!-- Navigation -->
-
-    <nav class="pin-nav">
-
-
-        <h2 class="logo">
-
-            <img
-                src="images/web-developer-logo.jpg"
-                alt="Web Developer Logo"
-            >
-
-        </h2>
-
-
-        <ul>
-
-            <li>
-                <a href="#home">
-                    Home
-                </a>
-            </li>
-
-            <li>
-                <a href="#about">
-                    About
-                </a>
-            </li>
-
-            <li>
-                <a href="#skills">
-                    Skills
-                </a>
-            </li>
-
-            <li>
-                <a href="#projects">
-                    Projects
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
+  </div>
+  <nav class="pin-nav">
+    <h2 class="logo"><img src="images/web-developer-logo.jpg" alt="Web Developer Logo"></h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 </header>
 
-
-
-<!-- =========================================================
-     HOME
-     ========================================================= -->
-
-<section
-    id="home"
-    class="hero"
->
-
-
-    <div class="hero-inner reveal">
-
-
-        <p class="board-label">
-
-            SACHIN_MAURYA.PCB
-            &nbsp;·&nbsp;
-            REV 2026.08
-            &nbsp;·&nbsp;
-            DSCE
-
-        </p>
-
-
-        <p class="boot-line">
-
-            <span id="bootText"></span>
-
-            <span class="cursor-blink">
-                _
-            </span>
-
-        </p>
-
-
-        <h1>
-
-            Hello, I'm
-
-            <span>
-                Sachin Maurya
-            </span>
-
-        </h1>
-
-
-        <p class="hero-role">
-
-            Electronics & Communication Engineering Student
-
-        </p>
-
-
-        <p class="hero-role">
-
-            Aspiring Full-Stack Developer
-
-        </p>
-
-
-        <a
-            href="resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-link"
-        >
-
-            <button
-                class="btn-primary"
-                type="button"
-            >
-
-                View / Download Resume
-
-            </button>
-
-        </a>
-
-    </div>
-
-
-    <div
-        class="scroll-cue"
-        aria-hidden="true"
-    >
-
-        <span></span>
-
-    </div>
-
+<!-- Home -->
+<section id="home" class="hero">
+  <div class="hero-inner reveal">
+    <p class="board-label">SACHIN_MAURYA.PCB &nbsp;·&nbsp; REV 2026.08 &nbsp;·&nbsp; DSCE</p>
+    <p class="boot-line"><span id="bootText"></span><span class="cursor-blink">_</span></p>
+    <h1>Hello, I'm <span>Sachin Maurya</span></h1>
+    <p class="hero-role">Electronics & Communication Engineering Student</p>
+    <p class="hero-role">Aspiring Full-Stack Developer</p>
+    <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-link">
+      <button class="btn-primary" type="button">View / Download Resume</button>
+    </a>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span></span></div>
 </section>
 
-
-
-<!-- =========================================================
-     ABOUT
-     ========================================================= -->
-
+<!-- About -->
 <section id="about">
-
-
-    <p class="eyebrow reveal">
-
-        U1
-        &nbsp;—&nbsp;
-        CORE MODULE
-
-    </p>
-
-
-    <h2 class="reveal">
-
-        About Me
-
-    </h2>
-
-
-    <!-- Original About Card -->
-
-    <div
-        class="ic-chip about-chip reveal"
-    >
-
-        <p>
-
-            I am an ECE student passionate about web development
-            and software engineering. I enjoy building websites
-            and learning modern technologies — bridging hardware
-            thinking with full-stack development to build practical,
-            user-focused applications.
-
-        </p>
-
+  <p class="eyebrow reveal">U1 &nbsp;—&nbsp; CORE MODULE</p>
+  <h2 class="reveal">About Me</h2>
+  <div class="ic-chip about-chip reveal">
+    <p>I am an ECE student passionate about web development and software engineering. I enjoy building websites and learning modern technologies — bridging hardware thinking with full-stack development to build practical, user-focused applications.</p>
+  </div>
+  <div class="about-terminal reveal" id="aboutTerminal">
+    <div class="terminal-top">
+      <div class="terminal-lights"><span></span><span></span><span></span></div>
+      <span class="terminal-name">sachin_profile.exe</span>
+      <span class="terminal-online">● ONLINE</span>
     </div>
-
-
-
-    <!-- NEW TERMINAL -->
-
-    <div
-        class="about-terminal reveal"
-        id="aboutTerminal"
-    >
-
-
-        <!-- Terminal top bar -->
-
-        <div class="terminal-top">
-
-
-            <div class="terminal-lights">
-
-                <span></span>
-
-                <span></span>
-
-                <span></span>
-
-            </div>
-
-
-            <span class="terminal-name">
-
-                sachin_profile.exe
-
-            </span>
-
-
-            <span class="terminal-online">
-
-                ● ONLINE
-
-            </span>
-
-        </div>
-
-
-        <!-- Terminal content -->
-
-        <div class="terminal-content">
-
-
-            <div class="terminal-row">
-
-                <span class="terminal-symbol">
-                    >
-                </span>
-
-                <span id="introLine1"></span>
-
-            </div>
-
-
-            <div class="terminal-row">
-
-                <span class="terminal-symbol">
-                    >
-                </span>
-
-                <span id="introLine2"></span>
-
-            </div>
-
-
-            <div class="terminal-row">
-
-                <span class="terminal-symbol">
-                    >
-                </span>
-
-                <span id="introLine3"></span>
-
-            </div>
-
-
-            <div class="terminal-row">
-
-                <span class="terminal-symbol">
-                    >
-                </span>
-
-                <span id="introLine4"></span>
-
-            </div>
-
-
-            <div class="terminal-row">
-
-                <span class="terminal-symbol">
-                    >
-                </span>
-
-                <span id="introLine5"></span>
-
-            </div>
-
-
-            <div class="terminal-cursor">
-
-                _
-                
-            </div>
-
-        </div>
-
+    <div class="terminal-content">
+      <div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine1"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine2"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine3"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine4"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine5"></span></div>
+      <div class="terminal-cursor">_</div>
     </div>
-
+  </div>
 </section>
 
-
-
-<!-- =========================================================
-     SKILLS
-     ========================================================= -->
-
+<!-- Skills -->
 <section id="skills">
-
-
-    <p class="eyebrow reveal">
-
-        BILL OF MATERIALS
-        &nbsp;—&nbsp;
-        SKILLS
-
-    </p>
-
-
-    <h2 class="reveal">
-
-        Skills
-
-    </h2>
-
-
-    <div class="bom-table reveal">
-
-
-        <div class="bom-row bom-head">
-
-            <span>
-                REF
-            </span>
-
-            <span>
-                COMPONENT
-            </span>
-
-            <span>
-                CATEGORY
-            </span>
-
-            <span>
-                STATUS
-            </span>
-
-        </div>
-
-
-        <div class="bom-row">
-
-            <span class="bom-ref">
-                R1
-            </span>
-
-            <span>
-                HTML
-            </span>
-
-            <span>
-                Structure
-            </span>
-
-            <span class="bom-status">
-                mounted
-            </span>
-
-        </div>
-
-
-        <div class="bom-row">
-
-            <span class="bom-ref">
-                R2
-            </span>
-
-            <span>
-                CSS
-            </span>
-
-            <span>
-                Responsive Layout
-            </span>
-
-            <span class="bom-status">
-                mounted
-            </span>
-
-        </div>
-
-
-        <div class="bom-row">
-
-            <span class="bom-ref">
-                R3
-            </span>
-
-            <span>
-                JavaScript
-            </span>
-
-            <span>
-                Interactivity
-            </span>
-
-            <span class="bom-status">
-                mounted
-            </span>
-
-        </div>
-
-
-        <div class="bom-row">
-
-            <span class="bom-ref">
-                R4
-            </span>
-
-            <span>
-                React.js
-            </span>
-
-            <span>
-                Frontend Framework
-            </span>
-
-            <span class="bom-status">
-                mounted
-            </span>
-
-        </div>
-
-
-        <div class="bom-row">
-
-            <span class="bom-ref">
-                R5
-            </span>
-
-            <span>
-                Node.js
-            </span>
-
-            <span>
-                Backend Runtime
-            </span>
-
-            <span class="bom-status">
-                mounted
-            </span>
-
-        </div>
-
-
-        <div class="bom-row">
-
-            <span class="bom-ref">
-                R6
-            </span>
-
-            <span>
-                C++ / Embedded C
-            </span>
-
-            <span>
-                Programming & Problem Solving
-            </span>
-
-            <span class="bom-status">
-                mounted
-            </span>
-
-        </div>
-
-    </div>
-
+  <p class="eyebrow reveal">BILL OF MATERIALS &nbsp;—&nbsp; SKILLS</p>
+  <h2 class="reveal">Skills</h2>
+  <div class="bom-table reveal">
+    <div class="bom-row bom-head"><span>REF</span><span>COMPONENT</span><span>CATEGORY</span><span>STATUS</span></div>
+    <div class="bom-row"><span class="bom-ref">R1</span><span>HTML</span><span>Structure</span><span class="bom-status">mounted</span></div>
+    <div class="bom-row"><span class="bom-ref">R2</span><span>CSS</span><span>Responsive Layout</span><span class="bom-status">mounted</span></div>
+    <div class="bom-row"><span class="bom-ref">R3</span><span>JavaScript</span><span>Interactivity</span><span class="bom-status">mounted</span></div>
+    <div class="bom-row"><span class="bom-ref">R4</span><span>React.js</span><span>Frontend Framework</span><span class="bom-status">mounted</span></div>
+    <div class="bom-row"><span class="bom-ref">R5</span><span>Node.js</span><span>Backend Runtime</span><span class="bom-status">mounted</span></div>
+    <div class="bom-row"><span class="bom-ref">R6</span><span>C++ / Embedded C</span><span>Programming & Problem Solving</span><span class="bom-status">mounted</span></div>
+  </div>
 </section>
 
-
-
-<!-- =========================================================
-     PROJECTS
-     ========================================================= -->
-
+<!-- Projects -->
 <section id="projects">
-
-
-    <p class="eyebrow reveal">
-
-        MODULES
-        &nbsp;—&nbsp;
-        PROJECTS
-
-    </p>
-
-
-    <h2 class="reveal">
-
-        Projects
-
-    </h2>
-
-
-    <div class="project-container">
-
-
-        <!-- Project 1 -->
-
-        <div
-            class="ic-chip project-card reveal"
-            data-project="AR Indoor Navigation"
-        >
-
-            <span class="ic-tag">
-                IC1
-            </span>
-
-            <h3>
-                AR Indoor Navigation
-            </h3>
-
-            <p>
-
-                AR-guided indoor navigation using QR localization
-                and the A* pathfinding algorithm.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Project 2 -->
-
-        <div
-            class="ic-chip project-card reveal"
-            data-project="IoT Lab Automation"
-        >
-
-            <span class="ic-tag">
-                IC2
-            </span>
-
-            <h3>
-                IoT Lab Automation
-            </h3>
-
-            <p>
-
-                ESP32 + sensor-driven automation for lighting
-                and climate control based on occupancy.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Project 3 -->
-
-        <div
-            class="ic-chip project-card reveal"
-            data-project="To-Do List App"
-        >
-
-            <span class="ic-tag">
-                IC3
-            </span>
-
-            <h3>
-                To-Do List App
-            </h3>
-
-            <p>
-
-                Task manager built using HTML, CSS and JavaScript.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Project 4 -->
-
-        <div
-            class="ic-chip project-card reveal"
-            data-project="Weather App"
-        >
-
-            <span class="ic-tag">
-                IC4
-            </span>
-
-            <h3>
-                Weather App
-            </h3>
-
-            <p>
-
-                Displays real-time weather data using a public API.
-
-            </p>
-
-        </div>
-
-
-
-        <!-- Project 5 -->
-
-        <div
-            class="ic-chip project-card reveal"
-            data-project="Portfolio Website"
-        >
-
-            <span class="ic-tag">
-                IC5
-            </span>
-
-            <h3>
-                Portfolio Website
-            </h3>
-
-            <p>
-
-                This site — a personal developer portfolio,
-                redesigned around a PCB schematic theme.
-
-            </p>
-
-        </div>
-
+  <p class="eyebrow reveal">MODULES &nbsp;—&nbsp; PROJECTS</p>
+  <h2 class="reveal">Projects</h2>
+  <div class="project-container">
+    <div class="ic-chip project-card reveal" data-project="AR Indoor Navigation">
+      <span class="ic-tag">IC1</span>
+      <h3>AR Indoor Navigation</h3>
+      <p>AR-guided indoor navigation using QR localization and the A* pathfinding algorithm.</p>
     </div>
-
+    <div class="ic-chip project-card reveal" data-project="IoT Lab Automation">
+      <span class="ic-tag">IC2</span>
+      <h3>IoT Lab Automation</h3>
+      <p>ESP32 + sensor-driven automation for lighting and climate control based on occupancy.</p>
+    </div>
+    <div class="ic-chip project-card reveal" data-project="To-Do List App">
+      <span class="ic-tag">IC3</span>
+      <h3>To-Do List App</h3>
+      <p>Task manager built using HTML, CSS and JavaScript.</p>
+    </div>
+    <div class="ic-chip project-card reveal" data-project="Weather App">
+      <span class="ic-tag">IC4</span>
+      <h3>Weather App</h3>
+      <p>Displays real-time weather data using a public API.</p>
+    </div>
+    <div class="ic-chip project-card reveal" data-project="Portfolio Website">
+      <span class="ic-tag">IC5</span>
+      <h3>Portfolio Website</h3>
+      <p>This site — a personal developer portfolio, redesigned around a PCB schematic theme.</p>
+    </div>
+  </div>
 </section>
 
-
-
-<!-- =========================================================
-     CONTACT
-     ========================================================= -->
-
+<!-- Contact -->
 <section id="contact">
-
-
-    <p class="eyebrow reveal">
-
-        J1
-        &nbsp;—&nbsp;
-        I/O CONNECTOR
-
-    </p>
-
-
-    <h2 class="reveal">
-
-        Contact Me
-
-    </h2>
-
-
-    <form
-        id="contactForm"
-        class="reveal"
-    >
-
-
-        <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            required
-        >
-
-
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your Email"
-            required
-        >
-
-
-        <textarea
-            id="message"
-            name="message"
-            placeholder="Your Message"
-            required
-        ></textarea>
-
-
-        <button
-            type="submit"
-            id="sendBtn"
-            class="btn-primary"
-        >
-
-            Send Message
-
-        </button>
-
-
-        <p
-            id="formStatus"
-            class="form-status"
-        ></p>
-
-    </form>
-
+  <p class="eyebrow reveal">J1 &nbsp;—&nbsp; I/O CONNECTOR</p>
+  <h2 class="reveal">Contact Me</h2>
+  <form id="contactForm" class="reveal">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+    <button type="submit" id="sendBtn" class="btn-primary">Send Message</button>
+    <p id="formStatus" class="form-status"></p>
+  </form>
 </section>
-
-
-
-<!-- =========================================================
-     FOOTER
-     ========================================================= -->
 
 <footer>
-
-    <p>
-
-        © 2026 Sachin Maurya
-        &nbsp;·&nbsp;
-        Board manufactured 2026
-        &nbsp;·&nbsp;
-        Developer Portfolio
-
-    </p>
-
+  <p>© 2026 Sachin Maurya &nbsp;·&nbsp; Board manufactured 2026 &nbsp;·&nbsp; Developer Portfolio</p>
 </footer>
 
-
-
-<!-- =========================================================
-     ONLY ONE JAVASCRIPT FILE
-     ========================================================= -->
-
 <script src="script.js"></script>
-
-
 </body>
-
 </html>

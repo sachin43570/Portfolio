@@ -4,114 +4,56 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-const PORT = 3000;
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-// Gmail transporter
 const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD
-    }
+  service: "gmail",
+  auth: {
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD
+  }
 });
 
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
-// Test route
 app.get("/", (req, res) => {
-    res.send("Portfolio backend is running!");
+  res.send("Portfolio backend is running!");
 });
 
-
-// Contact form route
+// Contact form route — receives the visitor's message and emails it to you
 app.post("/send-message", async (req, res) => {
+  try {
+    const { name, email, message } = req.body;
 
-    try {
-
-        const { name, email, message } = req.body;
-
-        // Check required fields
-        if (!name || !email || !message) {
-            return res.status(400).json({
-                success: false,
-                message: "Please fill all fields."
-            });
-        }
-
-
-        // Email sent to YOUR Gmail
-        const mailOptions = {
-            from: process.env.GMAIL_USER,
-
-            to: process.env.GMAIL_USER,
-
-            replyTo: email,
-
-            subject: `Portfolio Contact: ${name}`,
-
-            text: `
-You received a new message from your portfolio.
-
-Name: ${name}
-
-Email: ${email}
-
-Message:
-${message}
-            `,
-
-            html: `
-                <h2>New Portfolio Contact</h2>
-
-                <p><strong>Name:</strong> ${name}</p>
-
-                <p><strong>Email:</strong> ${email}</p>
-
-                <p><strong>Message:</strong></p>
-
-                <p>${message.replace(/\n/g, "<br>")}</p>
-
-                <hr>
-
-                <p>
-                    You can reply directly to this email to contact ${name}.
-                </p>
-            `
-        };
-
-
-        // Send email
-        await transporter.sendMail(mailOptions);
-
-
-        res.json({
-            success: true,
-            message: "Message sent successfully!"
-        });
-
-
-    } catch (error) {
-
-        console.error("Email error:", error);
-
-        res.status(500).json({
-            success: false,
-            message: "Failed to send message."
-        });
-
+    if (!name || !email || !message) {
+      return res.status(400).json({ success: false, message: "Please fill all fields." });
+    }
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ success: false, message: "Please enter a valid email address." });
     }
 
-});
+    const mailOptions = {
+      from: `"Portfolio Contact" <${process.env.GMAIL_USER}>`, // must be your own address for Gmail to accept it
+      to: process.env.GMAIL_USER,       // you receive it
+      replyTo: email,                   // hit "Reply" to answer the visitor directly
+      subject: `Portfolio Contact: ${name}`,
+      text: `You received a new message from your portfolio.\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      html: `<h2>New Portfolio Contact</h2><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, "<br>")}</p><hr><p>You can reply directly to this email to contact ${name}.</p>`
+    };
 
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: "Message sent successfully!" });
+
+  } catch (error) {
+    console.error("Email error:", error);
+    res.status(500).json({ success: false, message: "Failed to send message." });
+  }
+});
 
 app.listen(PORT, () => {
-
-    console.log(`Server running at http://localhost:${PORT}`);
-
+  console.log(`Server running at http://localhost:${PORT}`);
 });
