@@ -4,7 +4,7 @@
 // the frontend is served by the same Express app, or a static host proxies
 // /send-message to it. Otherwise set the full backend URL, e.g.
 // "https://your-backend.onrender.com/send-message".
-const CONTACT_API_URL = "/send-message";
+const CONTACT_API_URL = "http://localhost:5000/send-message";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -186,61 +186,75 @@ document.addEventListener("DOMContentLoaded", () => {
     card.style.transitionDelay = `${index * 80}ms`;
   });
 
-  /* 7. Contact form — sends to the backend, which emails sachinmaurya43570@gmail.com */
-  const contactForm = document.getElementById("contactForm");
-  const formStatus = document.getElementById("formStatus");
-  const sendBtn = document.getElementById("sendBtn");
+  /* 7. Contact form — sends message to backend */
+const contactForm = document.getElementById("contactForm");
+const formStatus = document.getElementById("formStatus");
+const sendBtn = document.getElementById("sendBtn");
 
-  if (contactForm && formStatus) {
-    contactForm.addEventListener("submit", async (event) => {
-      event.preventDefault();
+if (contactForm && formStatus) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-      const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-      if (!name || !email || !message) {
-        formStatus.textContent = "Please fill in all fields.";
+    if (!name || !email || !message) {
+      formStatus.textContent = "Please fill in all fields.";
+      formStatus.className = "form-status error";
+      return;
+    }
+
+    if (sendBtn) {
+      sendBtn.disabled = true;
+      sendBtn.textContent = "Sending...";
+    }
+
+    formStatus.textContent = "Sending your message...";
+    formStatus.className = "form-status";
+
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: message
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        formStatus.textContent =
+          "Message sent! I'll get back to you soon.";
+        formStatus.className = "form-status success";
+
+        contactForm.reset();
+      } else {
+        formStatus.textContent =
+          data.message || "Something went wrong. Please try again.";
         formStatus.className = "form-status error";
-        return;
       }
 
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      formStatus.textContent =
+        "Couldn't reach the server. Please try again later.";
+      formStatus.className = "form-status error";
+
+    } finally {
       if (sendBtn) {
-        sendBtn.disabled = true;
-        sendBtn.textContent = "Sending...";
+        sendBtn.disabled = false;
+        sendBtn.textContent = "Send Message";
       }
-      formStatus.textContent = "Sending your message...";
-      formStatus.className = "form-status";
-
-      try {
-        const response = await fetch(CONTACT_API_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, email, message })
-        });
-
-        const data = await response.json();
-
-        if (response.ok && data.success) {
-          formStatus.textContent = "Message sent! I'll get back to you soon.";
-          formStatus.className = "form-status success";
-          contactForm.reset();
-        } else {
-          formStatus.textContent = data.message || "Something went wrong. Please try again.";
-          formStatus.className = "form-status error";
-        }
-      } catch (error) {
-        console.error("Contact form error:", error);
-        formStatus.textContent = "Couldn't reach the server. Please try again later.";
-        formStatus.className = "form-status error";
-      } finally {
-        if (sendBtn) {
-          sendBtn.disabled = false;
-          sendBtn.textContent = "Send Message";
-        }
-      }
-    });
-  }
+    }
+  });
+}
 
   /* 8. Navigation */
   const navLinks = document.querySelectorAll('.pin-nav a[href^="#"]');
