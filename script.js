@@ -74,12 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const robot = document.getElementById("portfolioBot");
 
   const robotMessages = [
-    "Hi! I'm Sachin Maurya, an Electronics & Communication Engineering student and aspiring Full-Stack Developer.",
-    "Sachin is passionate about web development, programming, electronics and IoT.",
-    "His major project is AR Indoor Navigation using QR localization and the A* pathfinding algorithm.",
-    "He also developed an IoT Lab Automation system using ESP32 and sensors.",
-    "He has also worked on web projects including a To-Do List and Weather App.",
-    "Explore the portfolio to learn more about Sachin and his work."
+  "Hi! I'm Sachin's portfolio assistant. I'll help you explore his profile, skills, and projects.",
+  "Sachin Maurya is an Electronics & Communication Engineering student and an aspiring Full-Stack Developer.",
+  "He has a strong interest in web development, programming, electronics, IoT, and software engineering.",
+  "His projects include VoltMap, an AR Based Indoor Navigation System, and an IoT Based Lab Automation system.",
+  "He has also developed practical web applications such as a To Do List and a Weather App.",
+  "You can explore the Skills section to see his technical knowledge and the Projects section to learn about his work.",
+  "Want to know more about Sachin? Scroll through the portfolio and I'll guide you along the way."
   ];
 
   let robotIndex = 0;
