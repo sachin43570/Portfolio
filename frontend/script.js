@@ -4,9 +4,20 @@
 // the frontend is served by the same Express app, or a static host proxies
 // /send-message to it. Otherwise set the full backend URL, e.g.
 // "https://your-backend.onrender.com/send-message".
-const CONTACT_API_URL = "http://localhost:5000/send-message";
+const CONTACT_API_URL = "https://portfolio-wn7q.onrender.com/send-message";
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  /* 0. Auto-sync header height (device-independent, no magic numbers) */
+const headerEl = document.querySelector("header");
+if (headerEl) {
+  const syncHeaderHeight = () => {
+    document.documentElement.style.setProperty("--header-h", headerEl.offsetHeight + "px");
+  };
+  syncHeaderHeight();
+  new ResizeObserver(syncHeaderHeight).observe(headerEl);
+  window.addEventListener("orientationchange", syncHeaderHeight);
+}
 
   /* 1. Hero boot text */
   const bootText = document.getElementById("bootText");
