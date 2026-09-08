@@ -27,6 +27,10 @@ header{position:fixed;top:0;left:0;right:0;width:100%;z-index:1000;display:flex;
 .email-logo{width:26px;height:26px;flex-shrink:0;margin-right:10px}
 .email-link{text-decoration:none;color:var(--text-dim);transition:color .2s}
 .email-link:hover{color:var(--copper-bright)}
+.contact-bar{width:100%;background:var(--bg-panel);border-bottom:1px solid var(--border);padding:6px 20px;display:flex;justify-content:flex-end;align-items:center}
+.phone{display:flex;align-items:center;font-size:13px;color:var(--text-dim);font-family:var(--font-mono)}
+.phone-link{text-decoration:none;color:var(--text-dim);transition:color .2s}
+.phone-link:hover{color:var(--copper-bright)}
 .pin-nav{display:flex;flex-wrap:wrap;row-gap:10px;justify-content:space-between;align-items:center;padding:10px 40px;background-image:repeating-linear-gradient(90deg,var(--border) 0 2px,transparent 2px 26px);background-position:bottom;background-size:100% 4px;background-repeat:repeat-x}
 .logo{margin:0;width:56px;height:56px}
 .logo img{width:56px;height:56px;object-fit:cover;border-radius:12px;border:1px solid var(--border-bright)}
@@ -142,6 +146,8 @@ form input,form textarea{width:100%;max-width:100%;margin:8px 0}
 :root{--header-h:135px}
 .top-bar{padding:7px 12px}
 .email{font-size:10px}
+.contact-bar{padding:5px 12px}
+.phone{font-size:10px}
 .email-logo{width:22px;height:22px;margin-right:6px}
 .pin-nav{padding:10px 10px 12px;row-gap:8px}
 .pin-nav ul{width:100%;justify-content:space-between}
