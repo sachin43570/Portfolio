@@ -1,7 +1,7 @@
 {
   "name": "portfolio-contact-backend",
   "version": "1.0.0",
-  "description": "Backend for the portfolio contact form — receives form submissions and emails them via Nodemailer",
+  "description": "Backend for the portfolio contact form with Google Sign-In verification and Resend email delivery",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -12,7 +12,7 @@
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-rate-limit": "^7.4.0",
-    "nodemailer": "^9.0.5",
+    "google-auth-library": "^11.0.2",
     "resend": "^6.26.0"
   }
 }
