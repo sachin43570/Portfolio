@@ -150,14 +150,18 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   }
   /* 3. General scroll reveal */
-  const revealElements=document.querySelectorAll(".reveal");
-  if(revealElements.length>0){
-    const revealObserver=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting)entry.target.classList.add("in-view");
-      });
-    },{threshold:0.12});
-    revealElements.forEach(element=>revealObserver.observe(element));
+    const revealElements = document.querySelectorAll(".reveal");
+   if (revealElements.length > 0) {
+     const revealObserver = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+         if (entry.isIntersecting) {
+           entry.target.classList.add("in-view");
+         } else {
+           entry.target.classList.remove("in-view");
+         }
+       });
+     }, { threshold: 0.12 });
+     revealElements.forEach(element => revealObserver.observe(element));
   }
   /* 4. Robot */
   const robotText=document.getElementById("robotText");
