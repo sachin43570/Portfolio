@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   const cursorDot=document.querySelector(".cursor-dot");
   const cursorGlow=document.querySelector(".cursor-glow");
   const hasMouse=window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   if(hasMouse&&cursorDot&&cursorGlow){
     let mouseX=0;
     let mouseY=0;
@@ -141,27 +142,35 @@ document.addEventListener("DOMContentLoaded",()=>{
       requestAnimationFrame(animateGlow);
     }
     animateGlow();
-    document.addEventListener("mousedown",()=>cursorDot.classList.add("is-clicking"));
-    document.addEventListener("mouseup",()=>cursorDot.classList.remove("is-clicking"));
+    document.addEventListener("mousedown",()=>{
+      cursorDot.classList.add("is-clicking");
+    });
+    document.addEventListener("mouseup",()=>{
+      cursorDot.classList.remove("is-clicking");
+    });
     const interactive=document.querySelectorAll("a,button,input,textarea,.ic-chip,.portfolio-bot");
     interactive.forEach(element=>{
-      element.addEventListener("mouseenter",()=>cursorDot.classList.add("is-hovering"));
-      element.addEventListener("mouseleave",()=>cursorDot.classList.remove("is-hovering"));
+      element.addEventListener("mouseenter",()=>{
+        cursorDot.classList.add("is-hovering");
+      });
+      element.addEventListener("mouseleave",()=>{
+        cursorDot.classList.remove("is-hovering");
+      });
     });
   }
   /* 3. General scroll reveal */
-    const revealElements = document.querySelectorAll(".reveal");
-   if (revealElements.length > 0) {
-     const revealObserver = new IntersectionObserver((entries) => {
-       entries.forEach(entry => {
-         if (entry.isIntersecting) {
-           entry.target.classList.add("in-view");
-         } else {
-           entry.target.classList.remove("in-view");
-         }
-       });
-     }, { threshold: 0.12 });
-     revealElements.forEach(element => revealObserver.observe(element));
+  const revealElements=document.querySelectorAll(".reveal");
+  if(revealElements.length>0){
+    const revealObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add("in-view");
+        }else{
+          entry.target.classList.remove("in-view");
+        }
+      });
+    },{threshold:0.12});
+    revealElements.forEach(element=>revealObserver.observe(element));
   }
   /* 4. Robot */
   const robotText=document.getElementById("robotText");
@@ -170,7 +179,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     "Hi! I'm Sachin's portfolio assistant. I'll help you explore his profile, skills, and projects.",
     "Sachin Maurya is an Electronics & Communication Engineering student and an aspiring Full-Stack Developer.",
     "He has a strong interest in web development, programming, electronics, IoT, and software engineering.",
-    "His projects include VoltMap, an AR Based Indoor Navigation System, and an IoT Based Lab Automation system.",
+    "His projects include VoltMap, an AR Based Indoor Navigation System, and an Inventory Management system.",
     "He has also developed practical web applications such as a To Do List and a Weather App.",
     "You can explore the Skills section to see his technical knowledge and the Projects section to learn about his work.",
     "Want to know more about Sachin? Scroll through the portfolio and I'll guide you along the way."
@@ -183,7 +192,10 @@ document.addEventListener("DOMContentLoaded",()=>{
       robotText.textContent=robotMessages[robotIndex];
       robotText.style.opacity="1";
       robotIndex++;
-      if(robotIndex>=robotMessages.length)robotIndex=0;
+
+      if(robotIndex>=robotMessages.length){
+        robotIndex=0;
+      }
     },300);
   }
   if(robot&&robotText){
@@ -204,18 +216,33 @@ document.addEventListener("DOMContentLoaded",()=>{
       },250);
     });
   }
-  /* 4.5 Robot docks above footer on scroll */
+  /* 4.5 Robot position - PC and mobile */
   const footerEl=document.querySelector("footer");
-  const BOT_GAP=1;
+  const BOT_GAP=10;
   function updateBotPosition(){
-    if(!robot||!footerEl)return;
+    if(!robot)return;
+    if(window.innerWidth<=768){
+      robot.style.bottom=BOT_GAP+"px";
+      return;
+    }
+    if(!footerEl){
+      robot.style.bottom=BOT_GAP+"px";
+      return;
+    }
     const footerRect=footerEl.getBoundingClientRect();
     const overlap=window.innerHeight-footerRect.top;
-    robot.style.bottom=(overlap>0?overlap+BOT_GAP:BOT_GAP)+"px";
+    if(overlap>0){
+      robot.style.bottom=(overlap+BOT_GAP)+"px";
+    }else{
+      robot.style.bottom=BOT_GAP+"px";
+    }
   }
-  if(robot&&footerEl){
-    window.addEventListener("scroll",()=>requestAnimationFrame(updateBotPosition),{passive:true});
+  if(robot){
+    window.addEventListener("scroll",()=>{
+      requestAnimationFrame(updateBotPosition);
+    },{passive:true});
     window.addEventListener("resize",updateBotPosition);
+    window.addEventListener("orientationchange",updateBotPosition);
     updateBotPosition();
   }
   /* 5. About Me terminal */
@@ -224,7 +251,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     "SYSTEM: Sachin Maurya profile detected.",
     "ROLE: Electronics & Communication Engineering Student.",
     "FOCUS: Full-Stack Development + Electronics + IoT.",
-    "PROJECTS: AR Navigation + IoT Lab Automation + Web Apps.",
+    "PROJECTS: AR Navigation + Inventory Management + Web Apps.",
     "STATUS: Learning, building and solving real-world problems."
   ];
   const introElements=[
@@ -258,7 +285,9 @@ document.addEventListener("DOMContentLoaded",()=>{
   async function startTerminal(){
     if(terminalStarted)return;
     terminalStarted=true;
-    if(aboutTerminal)aboutTerminal.classList.add("terminal-active");
+    if(aboutTerminal){
+      aboutTerminal.classList.add("terminal-active");
+    }
     for(let i=0;i<introLines.length;i++){
       await typeLine(introElements[i],introLines[i],22);
       await sleep(300);
@@ -275,10 +304,27 @@ document.addEventListener("DOMContentLoaded",()=>{
     },{threshold:0.25});
     terminalObserver.observe(aboutTerminal);
   }
-  /* 6. Project card stagger */
+  /* 6. Project cards */
   const projectCards=document.querySelectorAll(".project-card");
   projectCards.forEach((card,index)=>{
     card.style.transitionDelay=`${index*80}ms`;
+    card.addEventListener("click",()=>{
+      const link=card.getAttribute("data-link");
+      if(link){
+        window.open(link,"_blank","noopener,noreferrer");
+      }
+    });
+    card.addEventListener("keydown",event=>{
+      if(event.key==="Enter"||event.key===" "){
+        event.preventDefault();
+
+        const link=card.getAttribute("data-link");
+
+        if(link){
+          window.open(link,"_blank","noopener,noreferrer");
+        }
+      }
+    });
   });
   /* 7. Contact form */
   const contactForm=document.getElementById("contactForm");
@@ -322,7 +368,9 @@ document.addEventListener("DOMContentLoaded",()=>{
         if(response.ok&&data.success){
           formStatus.textContent="Message sent! I'll get back to you soon.";
           formStatus.className="form-status success";
-          if(messageInput)messageInput.value="";
+          if(messageInput){
+            messageInput.value="";
+          }
         }else{
           formStatus.textContent=data.message||"Something went wrong. Please try again.";
           formStatus.className="form-status error";
@@ -345,8 +393,11 @@ document.addEventListener("DOMContentLoaded",()=>{
     link.addEventListener("click",event=>{
       const targetId=link.getAttribute("href");
       const target=document.querySelector(targetId);
+
       if(!target)return;
+
       event.preventDefault();
+
       target.scrollIntoView({
         behavior:"smooth",
         block:"start"
