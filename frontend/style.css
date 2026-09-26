@@ -105,7 +105,8 @@ form textarea{height:130px;resize:vertical}
 .form-status.success{color:var(--trace-green)}
 .form-status.error{color:#F87171}
 footer{position:relative;z-index:1001;background:var(--bg-panel);border-top:1px solid var(--border);padding:20px;text-align:center;color:var(--text-faint);font-family:var(--font-mono);font-size:12px}
-.portfolio-bot{position:fixed;right:25px;bottom:25px;width:100px;height:125px;z-index:900;animation:robot-float 4s ease-in-out infinite;pointer-events:auto;transition:bottom .12s linear}
+.portfolio-bot{position:fixed;right:25px;bottom:25px;width:100px;height:125px;z-index:900;animation:robot-float 4s ease-in-out infinite;pointer-events:auto;transition:bottom .12s linear,opacity .25s ease,transform .25s ease}
+.portfolio-bot.bot-hidden{opacity:0;transform:translateY(20px) scale(.85);pointer-events:none;animation:none}
 .robot{position:relative;width:100px;height:120px}
 .robot-antenna{position:absolute;left:49px;top:0;width:2px;height:17px;background:var(--copper-bright)}
 .robot-antenna span{position:absolute;width:8px;height:8px;left:-3px;top:-5px;border-radius:50%;background:var(--trace-green);box-shadow:0 0 10px var(--trace-green);animation:robot-signal 1.5s infinite}

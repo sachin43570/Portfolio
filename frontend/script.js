@@ -216,21 +216,18 @@ document.addEventListener("DOMContentLoaded",()=>{
       },250);
     });
   }
-  /* 4.5 Robot position - PC and mobile */
+  /* 4.5 Robot position - PC and mobile (unified, uses visualViewport) */
   const footerEl=document.querySelector("footer");
   const BOT_GAP=10;
   function updateBotPosition(){
     if(!robot)return;
-    if(window.innerWidth<=768){
-      robot.style.bottom=BOT_GAP+"px";
-      return;
-    }
     if(!footerEl){
       robot.style.bottom=BOT_GAP+"px";
       return;
     }
     const footerRect=footerEl.getBoundingClientRect();
-    const overlap=window.innerHeight-footerRect.top;
+    const viewportHeight=window.visualViewport?window.visualViewport.height:window.innerHeight;
+    const overlap=viewportHeight-footerRect.top;
     if(overlap>0){
       robot.style.bottom=(overlap+BOT_GAP)+"px";
     }else{
@@ -243,8 +240,23 @@ document.addEventListener("DOMContentLoaded",()=>{
     },{passive:true});
     window.addEventListener("resize",updateBotPosition);
     window.addEventListener("orientationchange",updateBotPosition);
+    if(window.visualViewport){
+      window.visualViewport.addEventListener("resize",updateBotPosition);
+      window.visualViewport.addEventListener("scroll",updateBotPosition);
+    }
     updateBotPosition();
   }
+  /* 4.6 Hide bot while a form field is focused (prevents keyboard overlap) */
+  const formFields=document.querySelectorAll("#contactForm input, #contactForm textarea");
+  formFields.forEach(field=>{
+    field.addEventListener("focus",()=>{
+      if(robot)robot.classList.add("bot-hidden");
+    });
+    field.addEventListener("blur",()=>{
+      if(robot)robot.classList.remove("bot-hidden");
+      updateBotPosition();
+    });
+  });
   /* 5. About Me terminal */
   const aboutTerminal=document.getElementById("aboutTerminal");
   const introLines=[
