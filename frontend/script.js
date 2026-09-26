@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   }
   /* 4.5 Robot position - PC and mobile (unified, uses visualViewport) */
   const footerEl=document.querySelector("footer");
-  const BOT_GAP=10;
+  const BOT_GAP=3;
   function updateBotPosition(){
     if(!robot)return;
     if(!footerEl){
