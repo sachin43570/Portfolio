@@ -204,6 +204,20 @@ document.addEventListener("DOMContentLoaded",()=>{
       },250);
     });
   }
+  /* 4.5 Robot docks above footer on scroll */
+  const footerEl=document.querySelector("footer");
+  const BOT_GAP=1;
+  function updateBotPosition(){
+    if(!robot||!footerEl)return;
+    const footerRect=footerEl.getBoundingClientRect();
+    const overlap=window.innerHeight-footerRect.top;
+    robot.style.bottom=(overlap>0?overlap+BOT_GAP:BOT_GAP)+"px";
+  }
+  if(robot&&footerEl){
+    window.addEventListener("scroll",()=>requestAnimationFrame(updateBotPosition),{passive:true});
+    window.addEventListener("resize",updateBotPosition);
+    updateBotPosition();
+  }
   /* 5. About Me terminal */
   const aboutTerminal=document.getElementById("aboutTerminal");
   const introLines=[
