@@ -5,231 +5,666 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sachin Maurya | Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="icon" href="images/web-developer-logo.jpg">
+<link rel="stylesheet" href="style.css?v=7">
 <script src="https://accounts.google.com/gsi/client" defer></script>
 </head>
 <body>
+
 <!-- Google Sign-In Gate -->
 <div id="googleAuthGate" class="google-auth-gate">
-<div class="google-auth-box">
-<div class="google-auth-logo">
-<img src="images/web-developer-logo.jpg" alt="Sachin Maurya">
+  <div class="google-auth-box">
+    <div class="google-auth-logo" style="overflow:hidden;border-radius:18px;background:#11151c">
+      <img src="images/web-developer-logo.jpg" alt="Sachin Maurya logo" style="width:100%;height:100%;display:block;object-fit:cover;object-position:50% 43%;transform:translateY(7%) scale(1.73);transform-origin:50% 43%">
+    </div>
+    <p class="google-auth-label">SACHIN_MAURYA.PCB</p>
+    <h1>Welcome to My Portfolio</h1>
+    <p class="google-auth-description">Sign in with Google to access Sachin Maurya's portfolio.</p>
+    <div id="googleSignInButton"></div>
+    <p id="googleAuthStatus" class="google-auth-status"></p>
+    <div class="google-auth-security">🔒 Your Google email will be used to identify you when you send a message.</div>
+  </div>
 </div>
-<p class="google-auth-label">SACHIN_MAURYA.PCB</p>
-<h1>Welcome to My Portfolio</h1>
-<p class="google-auth-description">Sign in with Google to access Sachin Maurya's portfolio.</p>
-<div id="googleSignInButton"></div>
-<p id="googleAuthStatus" class="google-auth-status"></p>
-<div class="google-auth-security">🔒 Your Google email will be used to identify you when you send a message.</div>
-</div>
-</div>
+
 <!-- Custom cursor -->
 <div class="cursor-glow" aria-hidden="true"></div>
 <div class="cursor-dot" aria-hidden="true"></div>
+
 <!-- Film grain -->
 <svg class="grain-overlay" aria-hidden="true">
-<filter id="grainFilter">
-<feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
-<feColorMatrix type="saturate" values="0"/>
-</filter>
-<rect width="100%" height="100%" filter="url(#grainFilter)"/>
+  <filter id="grainFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grainFilter)"/>
 </svg>
+
+<!-- Tech background: blueprint grid + ambient glows -->
+<div class="tech-bg" aria-hidden="true"></div>
+
+<!-- Floating full-stack code + electronics tokens -->
+<div class="code-float" aria-hidden="true">
+  <span style="--x:5%;--y:14%;--d:0s;--t:24s">&lt;/&gt;</span>
+  <span style="--x:22%;--y:8%;--d:-6s;--t:28s">VCC 3.3V</span>
+  <span style="--x:41%;--y:20%;--d:-3s;--t:26s">GET /api/users</span>
+  <span style="--x:63%;--y:10%;--d:-11s;--t:30s">{ flex; grid; }</span>
+  <span style="--x:84%;--y:18%;--d:-8s;--t:25s">0x3F</span>
+  <span style="--x:10%;--y:36%;--d:-14s;--t:27s">npm run dev</span>
+  <span style="--x:32%;--y:46%;--d:-2s;--t:29s">I²C · SDA / SCL</span>
+  <span style="--x:55%;--y:38%;--d:-9s;--t:24s">useState()</span>
+  <span style="--x:76%;--y:44%;--d:-5s;--t:31s">GPIO 21</span>
+  <span style="--x:92%;--y:34%;--d:-12s;--t:26s">GND</span>
+  <span style="--x:4%;--y:60%;--d:-7s;--t:28s">SELECT * FROM</span>
+  <span style="--x:25%;--y:68%;--d:-13s;--t:25s">UART 9600</span>
+  <span style="--x:47%;--y:60%;--d:-4s;--t:30s">app.listen(5000)</span>
+  <span style="--x:68%;--y:70%;--d:-10s;--t:27s">220Ω</span>
+  <span style="--x:88%;--y:62%;--d:-1s;--t:29s">PWM</span>
+  <span style="--x:8%;--y:86%;--d:-15s;--t:26s">display: grid;</span>
+  <span style="--x:34%;--y:90%;--d:-6s;--t:31s">ADC → MCU</span>
+  <span style="--x:58%;--y:84%;--d:-9s;--t:25s">&lt;div class="card"&gt;</span>
+  <span style="--x:80%;--y:92%;--d:-3s;--t:28s">MQTT · IoT</span>
+</div>
+
 <!-- PCB background -->
 <svg class="pcb-bg" viewBox="0 0 1440 1600" preserveAspectRatio="xMidYMin slice" aria-hidden="true">
-<g class="pcb-traces">
-<path d="M -50 120 H 300 V 340 H 700 V 90 H 1100 V 400"/>
-<path d="M 1500 260 H 1150 V 560 H 780 V 780 H 420 V 520 H -50"/>
-<path d="M -50 720 H 220 V 980 H 600 V 1180 H 980 V 940 H 1500"/>
-<path d="M 1500 1120 H 1200 V 1360 H 860 V 1560 H 500 V 1400 H -50"/>
-</g>
-<g class="pcb-vias">
-<circle cx="300" cy="120" r="5"/>
-<circle cx="700" cy="340" r="5"/>
-<circle cx="1100" cy="90" r="5"/>
-<circle cx="1150" cy="260" r="5"/>
-<circle cx="780" cy="560" r="5"/>
-<circle cx="420" cy="780" r="5"/>
-<circle cx="220" cy="720" r="5"/>
-<circle cx="600" cy="980" r="5"/>
-<circle cx="980" cy="1180" r="5"/>
-<circle cx="1200" cy="1120" r="5"/>
-<circle cx="860" cy="1360" r="5"/>
-<circle cx="500" cy="1560" r="5"/>
-</g>
+  <g class="pcb-traces">
+    <path d="M -50 120 H 300 V 340 H 700 V 90 H 1100 V 400"/>
+    <path d="M 1500 260 H 1150 V 560 H 780 V 780 H 420 V 520 H -50"/>
+    <path d="M -50 720 H 220 V 980 H 600 V 1180 H 980 V 940 H 1500"/>
+    <path d="M 1500 1120 H 1200 V 1360 H 860 V 1560 H 500 V 1400 H -50"/>
+    <path d="M 1166 176 H 1100"/>
+    <path d="M 1314 160 H 1500"/>
+    <path d="M 180 1222 H 360 V 1400"/>
+    <path d="M 80 1222 H -50"/>
+    <path d="M 1010 1430 H 860"/>
+    <path d="M 1106 1430 H 1500"/>
+  </g>
+  <g class="pcb-vias">
+    <circle cx="300" cy="120" r="5"/>
+    <circle cx="700" cy="340" r="5"/>
+    <circle cx="1100" cy="90" r="5"/>
+    <circle cx="1150" cy="260" r="5"/>
+    <circle cx="780" cy="560" r="5"/>
+    <circle cx="420" cy="780" r="5"/>
+    <circle cx="220" cy="720" r="5"/>
+    <circle cx="600" cy="980" r="5"/>
+    <circle cx="980" cy="1180" r="5"/>
+    <circle cx="1200" cy="1120" r="5"/>
+    <circle cx="860" cy="1360" r="5"/>
+    <circle cx="500" cy="1560" r="5"/>
+    <circle cx="1100" cy="176" r="5"/>
+    <circle cx="360" cy="1400" r="5"/>
+    <circle cx="860" cy="1430" r="5"/>
+  </g>
+  <g class="pcb-parts">
+    <!-- MCU chip (top right) -->
+    <g transform="translate(1180 130)">
+      <rect class="chip" x="0" y="0" width="120" height="76" rx="6"/>
+      <path d="M -14 14 H 0 M -14 30 H 0 M -14 46 H 0 M -14 62 H 0 M 120 14 H 134 M 120 30 H 134 M 120 46 H 134 M 120 62 H 134"/>
+      <circle cx="14" cy="14" r="3"/>
+      <text x="60" y="44" text-anchor="middle">MCU</text>
+    </g>
+    <!-- IoT chip (bottom left) -->
+    <g transform="translate(80 1190)">
+      <rect class="chip" x="0" y="0" width="100" height="64" rx="6"/>
+      <path d="M 18 -12 V 0 M 40 -12 V 0 M 62 -12 V 0 M 84 -12 V 0 M 18 64 V 76 M 40 64 V 76 M 62 64 V 76 M 84 64 V 76"/>
+      <circle cx="12" cy="12" r="3"/>
+      <text x="50" y="37" text-anchor="middle">IoT</text>
+    </g>
+    <!-- ADC chip (bottom right) -->
+    <g transform="translate(1010 1400)">
+      <rect class="chip" x="0" y="0" width="96" height="60" rx="6"/>
+      <circle cx="12" cy="12" r="3"/>
+      <text x="48" y="35" text-anchor="middle">ADC</text>
+    </g>
+    <!-- Resistors -->
+    <g transform="translate(880 560)">
+      <rect class="mask" x="0" y="-14" width="100" height="28"/>
+      <path d="M 0 0 H 14 L 20 -10 L 32 10 L 44 -10 L 56 10 L 68 -10 L 80 10 L 86 0 H 100"/>
+    </g>
+    <g transform="translate(740 1180)">
+      <rect class="mask" x="0" y="-14" width="100" height="28"/>
+      <path d="M 0 0 H 14 L 20 -10 L 32 10 L 44 -10 L 56 10 L 68 -10 L 80 10 L 86 0 H 100"/>
+    </g>
+    <!-- Capacitor -->
+    <g transform="translate(380 980)">
+      <rect class="mask" x="0" y="-18" width="60" height="36"/>
+      <path d="M 0 0 H 24 M 24 -14 V 14 M 36 -14 V 14 M 36 0 H 60"/>
+    </g>
+  </g>
+  <g class="pcb-signals">
+    <circle class="signal" r="3.5"><animateMotion dur="9s" repeatCount="indefinite" path="M -50 120 H 300 V 340 H 700 V 90 H 1100 V 400"/></circle>
+    <circle class="signal g" r="3.5"><animateMotion dur="11s" repeatCount="indefinite" path="M -50 720 H 220 V 980 H 600 V 1180 H 980 V 940 H 1500"/></circle>
+    <circle class="signal" r="3.5"><animateMotion dur="13s" repeatCount="indefinite" path="M 1500 1120 H 1200 V 1360 H 860 V 1560 H 500 V 1400 H -50"/></circle>
+  </g>
 </svg>
+
 <!-- Robot assistant -->
 <div class="portfolio-bot" id="portfolioBot">
-<div class="robot">
-<div class="robot-antenna"><span></span></div>
-<div class="robot-head"><span class="robot-eye"></span><span class="robot-eye"></span></div>
-<div class="robot-neck"></div>
-<div class="robot-body"><div class="robot-core"></div></div>
-<div class="robot-arm robot-arm-left"></div>
-<div class="robot-arm robot-arm-right"></div>
+  <div class="robot">
+    <div class="robot-antenna"><span></span></div>
+    <div class="robot-head"><span class="robot-eye"></span><span class="robot-eye"></span></div>
+    <div class="robot-neck"></div>
+    <div class="robot-body"><div class="robot-core"></div></div>
+    <div class="robot-arm robot-arm-left"></div>
+    <div class="robot-arm robot-arm-right"></div>
+  </div>
+  <div class="robot-speech"><span id="robotText">Hi! I'm Sachin's portfolio assistant.</span></div>
 </div>
-<div class="robot-speech"><span id="robotText">Hi! I'm Sachin's portfolio assistant.</span></div>
-</div>
+
 <!-- Header -->
 <header>
-<div class="header-bg">
-<div class="top-bar">
-<div class="email">
-<svg class="email-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="24" height="24" rx="6" fill="#C9824C"/>
-<path d="M5 8l7 5 7-5" stroke="#0A0D11" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-<rect x="5" y="6.5" width="14" height="11" rx="1.5" stroke="#0A0D11" stroke-width="1.8"/>
-</svg>
-<a href="mailto:sachinmaurya43570@gmail.com" class="email-link">sachinmaurya43570@gmail.com</a>
-</div>
-</div>
-<div class="contact-bar">
-<span class="phone">
-📞   Phone No. :-  <a href="tel:+919580937395" class="phone-link">+91 9580937395</a>
-</span>
-</div>
-<nav class="pin-nav">
-<h2 class="logo"><img src="images/web-developer-logo.jpg" alt="Web Developer Logo"></h2>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#certifications">Certifications</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</div>
+  <div class="nav-wrap">
+    <a href="#home" class="brand" aria-label="Sachin Maurya — home">
+      <span class="brand-logo" style="display:block;width:46px;height:46px;border-radius:12px;overflow:hidden;background:#11151c"><img src="images/web-developer-logo.jpg" alt="Sachin Maurya — logo" style="width:100%;height:100%;display:block;object-fit:cover;object-position:50% 43%;transform:translateY(7%) scale(1.73);transform-origin:50% 43%"></span>
+    </a>
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-gradient btn-sm hire-btn">Hire Me</a>
+  </div>
 </header>
-<!-- Home -->
+
+<main>
+
+<!-- ================= HOME ================= -->
 <section id="home" class="hero">
-<div class="hero-inner reveal">
-<p class="board-label">SACHIN_MAURYA.PCB &nbsp;·&nbsp; REV 2026.08 &nbsp;·&nbsp; DSCE</p>
-<p class="boot-line"><span id="bootText"></span><span class="cursor-blink">_</span></p>
-<h1>Hello, I'm <span>Sachin Maurya</span></h1>
-<p class="hero-role">Electronics & Communication Engineering Student</p>
-<p class="hero-role">Aspiring Full-Stack Developer</p>
-<a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-link">
-<button class="btn-primary" type="button">View / Download Resume</button>
-</a>
-</div>
-<div class="scroll-cue" aria-hidden="true"><span></span></div>
+  <div class="hero-grid">
+    <div class="hero-text reveal">
+      <p class="board-label">SACHIN_MAURYA.PCB &nbsp;·&nbsp; REV 2026.08 &nbsp;·&nbsp; DSCE</p>
+      <p class="boot-line"><span id="bootText"></span><span class="cursor-blink">_</span></p>
+      <p class="hello">Hello! I am <strong>Sachin Maurya</strong></p>
+      <h1 class="role-pill">Full-Stack Developer</h1>
+      <p class="hero-desc">Electronics &amp; Communication Engineering student passionate about building practical, user-focused web applications — bridging hardware thinking with modern full-stack development.</p>
+      <p class="hero-highlights">5 Projects Deployed <i>•</i> 4 Certifications <i>•</i> ECE + Full-Stack</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-gradient">Get In Touch</a>
+        <a href="#projects" class="btn btn-outline">View Projects</a>
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-alt">Resume</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <div class="photo-ring">
+        <img src="images/profile.jpg" alt="Sachin Maurya">
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-banner reveal">
+    <h2>Building the <span class="grad-text">Future of Web</span></h2>
+    <p>Specializing in <b class="c-green">Full-Stack Development</b> and <b class="c-copper">Electronics &amp; IoT</b></p>
+    <a href="#about" class="btn btn-gradient btn-pill">Learn More About Me →</a>
+  </div>
 </section>
-<!-- About -->
+
+<!-- ================= ABOUT ================= -->
 <section id="about">
-<p class="eyebrow reveal">U1 &nbsp;—&nbsp; CORE MODULE</p>
-<h2 class="reveal">About Me</h2>
-<div class="ic-chip about-chip reveal">
-<p>I am an ECE student passionate about web development and software engineering. I enjoy building websites and learning modern technologies — bridging hardware thinking with full-stack development to build practical, user-focused applications.</p>
-</div>
-<div class="about-terminal reveal" id="aboutTerminal">
-<div class="terminal-top">
-<div class="terminal-lights"><span></span><span></span><span></span></div>
-<span class="terminal-name">sachin_profile.exe</span>
-<span class="terminal-online">● ONLINE</span>
-</div>
-<div class="terminal-content">
-<div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine1"></span></div>
-<div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine2"></span></div>
-<div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine3"></span></div>
-<div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine4"></span></div>
-<div class="terminal-row"><span class="terminal-symbol">></span><span id="introLine5"></span></div>
-<div class="terminal-cursor">_</div>
-</div>
-</div>
+  <div class="section-head reveal">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-sub">Passionate developer with a strong foundation in technology and innovation</p>
+  </div>
+
+  <div class="card-grid cols-3">
+    <article class="card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-blue">🎓</span>
+        <h3>Academic Excellence</h3>
+      </header>
+      <p>Electronics &amp; Communication Engineering student with a strong foundation in core engineering and programming concepts.</p>
+      <ul class="dot-list c-copper">
+        <li>Electronics &amp; Communication</li>
+        <li>Embedded C &amp; C++</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-orange">⚡</span>
+        <h3>Technical Expertise</h3>
+      </header>
+      <p>Hands-on with full-stack development — building and deploying websites and web apps with modern technologies.</p>
+      <ul class="dot-list c-orange">
+        <li>React.js &amp; Node.js</li>
+        <li>REST APIs &amp; Backend</li>
+        <li>Responsive Frontend</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-green">🧠</span>
+        <h3>Problem Solving</h3>
+      </header>
+      <p>Learning, building and solving real-world problems — from AR navigation to inventory systems and EV charging.</p>
+      <ul class="dot-list c-green">
+        <li>AR + A* Pathfinding</li>
+        <li>Full-Stack Platforms</li>
+        <li>Electronics &amp; IoT</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="about-terminal reveal" id="aboutTerminal">
+    <div class="terminal-top">
+      <div class="terminal-lights"><span></span><span></span><span></span></div>
+      <span class="terminal-name">sachin_profile.exe</span>
+      <span class="terminal-online">● ONLINE</span>
+    </div>
+    <div class="terminal-content">
+      <div class="terminal-row"><span class="terminal-symbol">&gt;</span><span id="introLine1"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">&gt;</span><span id="introLine2"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">&gt;</span><span id="introLine3"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">&gt;</span><span id="introLine4"></span></div>
+      <div class="terminal-row"><span class="terminal-symbol">&gt;</span><span id="introLine5"></span></div>
+      <div class="terminal-cursor">_</div>
+    </div>
+  </div>
+
+  <div class="stat-row reveal-group">
+    <div class="stat-card"><span class="stat-ico">🧩</span><b class="c-orange">130+</b><small>LeetCode Solved</small></div>
+    <div class="stat-card"><span class="stat-ico">🚀</span><b class="c-purple">5</b><small>Projects Deployed</small></div>
+    <div class="stat-card"><span class="stat-ico">🏅</span><b class="c-yellow">4</b><small>Certifications</small></div>
+    <div class="stat-card"><span class="stat-ico">🛠️</span><b class="c-green">6</b><small>Core Skills</small></div>
+  </div>
+
+  <a href="#contact" class="btn btn-gradient btn-pill reveal">🤝 Let's Connect →</a>
 </section>
-<!-- Skills -->
+
+<!-- ================= SKILLS ================= -->
 <section id="skills">
-<p class="eyebrow reveal">BILL OF MATERIALS &nbsp;—&nbsp; SKILLS</p>
-<h2 class="reveal">Skills</h2>
-<div class="bom-table reveal">
-<div class="bom-row bom-head"><span>REF</span><span>COMPONENT</span><span>CATEGORY</span><span>STATUS</span></div>
-<div class="bom-row"><span class="bom-ref">R1</span><span>HTML</span><span>Structure</span><span class="bom-status">mounted</span></div>
-<div class="bom-row"><span class="bom-ref">R2</span><span>CSS</span><span>Responsive Layout</span><span class="bom-status">mounted</span></div>
-<div class="bom-row"><span class="bom-ref">R3</span><span>JavaScript</span><span>Interactivity</span><span class="bom-status">mounted</span></div>
-<div class="bom-row"><span class="bom-ref">R4</span><span>React.js</span><span>Frontend Framework</span><span class="bom-status">mounted</span></div>
-<div class="bom-row"><span class="bom-ref">R5</span><span>Node.js</span><span>Backend Runtime</span><span class="bom-status">mounted</span></div>
-<div class="bom-row"><span class="bom-ref">R6</span><span>C++ / Embedded C</span><span>Programming & Problem Solving</span><span class="bom-status">mounted</span></div>
-</div>
+  <div class="section-head reveal">
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-sub">Modern technologies and tools I use to build exceptional digital experiences</p>
+  </div>
+
+  <!-- Programming Languages skill bars -->
+  <h3 class="skill-group-title reveal">Programming Languages</h3>
+  <div class="skill-bars">
+    <article class="card skill-bar-card reveal" style="--w:85%;--acc:59,130,246;--acc2:59,130,246">
+      <h4>C++</h4>
+      <div class="skill-track"><span class="skill-fill fill-cpp"></span></div>
+      <small>85%</small>
+    </article>
+    <article class="card skill-bar-card reveal" style="--w:90%;--acc:250,204,21;--acc2:250,204,21">
+      <h4>JavaScript</h4>
+      <div class="skill-track"><span class="skill-fill fill-js"></span></div>
+      <small>90%</small>
+    </article>
+    <article class="card skill-bar-card reveal" style="--w:70%;--acc:52,211,153;--acc2:52,211,153">
+      <h4>Python</h4>
+      <div class="skill-track"><span class="skill-fill fill-py"></span></div>
+      <small>70%</small>
+    </article>
+    <article class="card skill-bar-card reveal" style="--w:80%;--acc:129,140,248;--acc2:129,140,248">
+      <h4>SQL</h4>
+      <div class="skill-track"><span class="skill-fill fill-sql"></span></div>
+      <small>80%</small>
+    </article>
+  </div>
+
+  <div class="card-grid cols-3">
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-blue">🎨</span><h3>Frontend</h3></header>
+      <ul class="dot-list c-blue">
+        <li>HTML5</li>
+        <li>CSS3 — Responsive Layout</li>
+        <li>JavaScript</li>
+        <li>React.js</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-green">⚙️</span><h3>Backend</h3></header>
+      <ul class="dot-list c-green">
+        <li>Node.js</li>
+        <li>Express.js</li>
+        <li>RESTful APIs</li>
+        <li>Authentication (Google Sign-In)</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-blue">🗄️</span><h3>Database</h3></header>
+      <ul class="dot-list c-blue">
+        <li>MongoDB</li>
+        <li>MySQL</li>
+        <li>Firebase</li>
+        <li>Database Design</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-orange">💻</span><h3>Programming</h3></header>
+      <ul class="dot-list c-orange">
+        <li>C++</li>
+        <li>Embedded C</li>
+        <li>Problem Solving</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-pink">🛠️</span><h3>Development Tools</h3></header>
+      <ul class="dot-list c-pink">
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>VS Code</li>
+        <li>Resend Email API</li>
+        <li>Google Sign-In (OAuth)</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-teal">🌐</span><h3>Hosting Platforms</h3></header>
+      <ul class="dot-list c-teal">
+        <li>Vercel</li>
+        <li>Render</li>
+        <li>Netlify</li>
+      </ul>
+    </article>
+    <article class="card reveal">
+      <header class="card-head"><span class="icon-tile t-purple">📡</span><h3>Electronics &amp; IoT</h3></header>
+      <ul class="dot-list c-purple">
+        <li>Embedded Systems</li>
+        <li>IoT</li>
+        <li>Electronics &amp; Communication</li>
+      </ul>
+    </article>
+  </div>
 </section>
-<!-- Projects -->
+
+<!-- ================= PROJECTS ================= -->
 <section id="projects">
-<p class="eyebrow reveal">MODULES &nbsp;—&nbsp; PROJECTS</p>
-<h2 class="reveal">Projects</h2>
-<div class="project-container">
-<div class="ic-chip project-card reveal" data-project="VoltMap — Smart EV Charging Platform" data-link="https://ev-charging-station-six.vercel.app" role="link" tabindex="0">
-<span class="ic-tag">IC1</span>
-<h3>VoltMap — Smart EV Charging Platform</h3>
-<p>Full-stack EV charging platform for discovering nearby charging stations, checking real-time charger availability, booking charging slots, and making secure online payments.</p>
-</div>
-<div class="ic-chip project-card reveal" data-project="AR Based Indoor Navigation System" data-link="https://ar-based-indoor-navigation-system.vercel.app" role="link" tabindex="0">
-<span class="ic-tag">IC2</span>
-<h3>AR Based Indoor Navigation System</h3>
-<p>AR-based indoor navigation system using QR localization and the A* pathfinding algorithm to provide efficient indoor route guidance.</p>
-</div>
-<div class="ic-chip project-card reveal" data-project="Inventory Management" data-link="https://inventory-management-frontend-roan.vercel.app" role="link" tabindex="0">
-<span class="ic-tag">IC3</span>
-<h3>Inventory Management</h3>
-<p>Full-stack inventory management system for adding, updating, tracking, and organizing products with real-time stock information and efficient data management.</p>
-</div>
-<div class="ic-chip project-card reveal" data-project="To Do List" data-link="https://to-do-list-blush-xi-73.vercel.app" role="link" tabindex="0">
-<span class="ic-tag">IC4</span>
-<h3>To Do List</h3>
-<p>Interactive task management web application built using HTML, CSS and JavaScript for creating, managing and organizing daily tasks.</p>
-</div>
-<div class="ic-chip project-card reveal" data-project="Weather App" data-link="https://weather-app-nu-cyan-28.vercel.app" role="link" tabindex="0">
-<span class="ic-tag">IC5</span>
-<h3>Weather App</h3>
-<p>Web application that retrieves and displays real-time weather information using a public weather API based on the selected location.</p>
-</div>
-</div>
+  <div class="section-head reveal">
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-sub">Applications I've built and deployed</p>
+  </div>
+
+  <div class="project-list">
+
+    <article class="project-card card reveal">
+      <div class="project-info">
+        <header class="card-head">
+          <span class="icon-tile t-green">⚡</span>
+          <div>
+            <h3>VoltMap</h3>
+            <p class="card-sub">Smart EV Charging Platform</p>
+            <time class="card-date"></time><!-- optional: add project dates e.g. Dec 2024 – Feb 2025 -->
+            <span class="pill">Full Stack Web Application</span>
+          </div>
+        </header>
+        <p class="project-desc">Full-stack EV charging platform for discovering nearby charging stations, checking real-time charger availability, booking charging slots, and making secure online payments.</p>
+        <h4>Key Features</h4>
+        <ul class="dot-list c-green">
+          <li>Interactive charger map with filters for charger type, connector, price, speed and amenities</li>
+          <li>Live availability status — Available, Limited or Full</li>
+          <li>Four-step booking flow: Details → Review → Payment → Confirm</li>
+          <li>Order history, favorites and a charging cost estimator, with User and Admin accounts</li>
+        </ul>
+        <h4>Tech Stack</h4>
+        <div class="tag-row"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>REST APIs</span><span>Vercel</span></div>
+        <div class="project-foot">
+          <span class="impact">Find, book and pay for a charging slot in one flow — no more guessing which charger is free.</span>
+          <a class="btn btn-teal btn-sm" href="https://ev-charging-station-six.vercel.app" target="_blank" rel="noopener noreferrer">↗ Live Demo</a>
+          <!-- <a class="btn btn-outline btn-sm" href="YOUR_GITHUB_REPO_URL" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+        </div>
+      </div>
+      <div class="browser-mock" data-shot="images/voltmap.png" data-live="https://ev-charging-station-six.vercel.app">
+        <div class="browser-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>ev-charging-station-six.vercel.app</span></div>
+        <div class="browser-screen"><span class="shot-fallback">⚡ VoltMap</span></div>
+      </div>
+    </article>
+
+    <article class="project-card card reveal">
+      <div class="project-info">
+        <header class="card-head">
+          <span class="icon-tile t-purple">🧭</span>
+          <div>
+            <h3>AR Based Indoor Navigation System</h3>
+            <p class="card-sub">QR Localization + A* Pathfinding</p>
+            <time class="card-date"></time><!-- optional: add project dates e.g. Dec 2024 – Feb 2025 -->
+            <span class="pill">Augmented Reality Application</span>
+          </div>
+        </header>
+        <p class="project-desc">AR-based indoor navigation system using QR localization and the A* pathfinding algorithm to provide efficient indoor route guidance.</p>
+        <h4>Key Features</h4>
+        <ul class="dot-list c-purple">
+          <li>QR-code based indoor localization to fix the user’s position</li>
+          <li>A* pathfinding to calculate the shortest indoor route</li>
+          <li>Step-by-Step, Continuous AR and Minimal HUD navigation modes</li>
+          <li>Developer mode with a visual floor planner for nodes and route segments</li>
+        </ul>
+        <h4>Tech Stack</h4>
+        <div class="tag-row"><span>JavaScript</span><span>HTML5 Canvas</span><span>QR Localization</span><span>A* Algorithm</span><span>Vercel</span></div>
+        <div class="project-foot">
+          <span class="impact">Replaces hard-to-read floor maps with turn-by-turn AR route guidance inside buildings.</span>
+          <a class="btn btn-teal btn-sm" href="https://ar-based-indoor-navigation-system.vercel.app" target="_blank" rel="noopener noreferrer">↗ Live Demo</a>
+          <!-- <a class="btn btn-outline btn-sm" href="YOUR_GITHUB_REPO_URL" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+        </div>
+      </div>
+      <div class="browser-mock" data-shot="images/ar-navigation.png" data-live="https://ar-based-indoor-navigation-system.vercel.app">
+        <div class="browser-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>ar-based-indoor-navigation-system.vercel.app</span></div>
+        <div class="browser-screen"><span class="shot-fallback">🧭 AR Based Indoor Navigation System</span></div>
+      </div>
+    </article>
+
+    <article class="project-card card reveal">
+      <div class="project-info">
+        <header class="card-head">
+          <span class="icon-tile t-orange">📦</span>
+          <div>
+            <h3>Inventory Management</h3>
+            <p class="card-sub">StockFlow — Stock Tracking System</p>
+            <time class="card-date"></time><!-- optional: add project dates e.g. Dec 2024 – Feb 2025 -->
+            <span class="pill">Full Stack Web Application</span>
+          </div>
+        </header>
+        <p class="project-desc">Full-stack inventory management system for adding, updating, tracking, and organizing products with real-time stock information and efficient data management.</p>
+        <h4>Key Features</h4>
+        <ul class="dot-list c-orange">
+          <li>Add, update and organize products in one place</li>
+          <li>Real-time stock information at a glance</li>
+          <li>Efficient data management across the product catalog</li>
+        </ul>
+        <h4>Tech Stack</h4>
+        <div class="tag-row"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>REST APIs</span><span>Vercel</span></div>
+        <div class="project-foot">
+          <span class="impact">Real-time stock visibility replaces manual tracking and reduces stock-keeping errors.</span>
+          <a class="btn btn-teal btn-sm" href="https://inventory-management-frontend-roan.vercel.app" target="_blank" rel="noopener noreferrer">↗ Live Demo</a>
+          <!-- <a class="btn btn-outline btn-sm" href="YOUR_GITHUB_REPO_URL" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+        </div>
+      </div>
+      <div class="browser-mock" data-shot="images/inventory.png" data-live="https://inventory-management-frontend-roan.vercel.app">
+        <div class="browser-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>inventory-management-frontend-roan.vercel.app</span></div>
+        <div class="browser-screen"><span class="shot-fallback">📦 Inventory Management</span></div>
+      </div>
+    </article>
+
+    <article class="project-card card reveal">
+      <div class="project-info">
+        <header class="card-head">
+          <span class="icon-tile t-pink">✅</span>
+          <div>
+            <h3>To Do List</h3>
+            <p class="card-sub">Task Management App</p>
+            <time class="card-date"></time><!-- optional: add project dates e.g. Dec 2024 – Feb 2025 -->
+            <span class="pill">Frontend Web Application</span>
+          </div>
+        </header>
+        <p class="project-desc">Interactive task management web application built using HTML, CSS and JavaScript for creating, managing and organizing daily tasks.</p>
+        <h4>Key Features</h4>
+        <ul class="dot-list c-pink">
+          <li>Create and add daily tasks instantly</li>
+          <li>Manage and organize tasks in a clean list</li>
+          <li>Lightweight, responsive interface</li>
+        </ul>
+        <h4>Tech Stack</h4>
+        <div class="tag-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Vercel</span></div>
+        <div class="project-foot">
+          <span class="impact">Keeps everyday tasks organized in one simple, distraction-free place.</span>
+          <a class="btn btn-teal btn-sm" href="https://to-do-list-blush-xi-73.vercel.app" target="_blank" rel="noopener noreferrer">↗ Live Demo</a>
+          <!-- <a class="btn btn-outline btn-sm" href="YOUR_GITHUB_REPO_URL" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+        </div>
+      </div>
+      <div class="browser-mock" data-shot="images/todo.png" data-live="https://to-do-list-blush-xi-73.vercel.app">
+        <div class="browser-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>to-do-list-blush-xi-73.vercel.app</span></div>
+        <div class="browser-screen"><span class="shot-fallback">✅ To Do List</span></div>
+      </div>
+    </article>
+
+    <article class="project-card card reveal">
+      <div class="project-info">
+        <header class="card-head">
+          <span class="icon-tile t-blue">⛅</span>
+          <div>
+            <h3>Weather App</h3>
+            <p class="card-sub">Real-time Weather Dashboard</p>
+            <time class="card-date"></time><!-- optional: add project dates e.g. Dec 2024 – Feb 2025 -->
+            <span class="pill">Web Application</span>
+          </div>
+        </header>
+        <p class="project-desc">Web application that retrieves and displays real-time weather information using a public weather API based on the selected location.</p>
+        <h4>Key Features</h4>
+        <ul class="dot-list c-blue">
+          <li>Search real-time weather for any city</li>
+          <li>Humidity and wind-speed details at a glance</li>
+          <li>Clear “Invalid City Name” error handling</li>
+        </ul>
+        <h4>Tech Stack</h4>
+        <div class="tag-row"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Weather API</span><span>Vercel</span></div>
+        <div class="project-foot">
+          <span class="impact">Instant, accurate weather for any location with graceful handling of wrong city names.</span>
+          <a class="btn btn-teal btn-sm" href="https://weather-app-nu-cyan-28.vercel.app" target="_blank" rel="noopener noreferrer">↗ Live Demo</a>
+          <!-- <a class="btn btn-outline btn-sm" href="YOUR_GITHUB_REPO_URL" target="_blank" rel="noopener noreferrer">GitHub</a> -->
+        </div>
+      </div>
+      <div class="browser-mock" data-shot="images/weather.png" data-live="https://weather-app-nu-cyan-28.vercel.app">
+        <div class="browser-bar"><i class="r"></i><i class="y"></i><i class="g"></i><span>weather-app-nu-cyan-28.vercel.app</span></div>
+        <div class="browser-screen"><span class="shot-fallback">⛅ Weather App</span></div>
+      </div>
+    </article>
+
+  </div>
 </section>
-<!-- Certifications -->
+
+<!-- ================= CERTIFICATIONS ================= -->
 <section id="certifications">
-<p class="eyebrow reveal">CREDENTIALS &nbsp;—&nbsp; CERTIFICATIONS</p>
-<h2 class="reveal">Certifications</h2>
-<div class="project-container">
-<div class="ic-chip project-card reveal">
-<span class="ic-tag">C1</span>
-<h3>Azure AI Fundamentals</h3>
-<p>Microsoft Azure AI Fundamentals certification.</p>
-<a href="certificates/azure-ai-fundamentals.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
-</div>
-<div class="ic-chip project-card reveal">
-<span class="ic-tag">C2</span>
-<h3>Deloitte Completion Certificate</h3>
-<p>Deloitte program completion certificate.</p>
-<a href="certificates/deloitte-certificate.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
-</div>
-<div class="ic-chip project-card reveal">
-<span class="ic-tag">C3</span>
-<h3>Developing in Agentic AI Systems</h3>
-<p>Microsoft Learn credential for Developing in Agentic AI Systems</p>
-<a href="certificates/microsoft-agentic-ai.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
-</div>
-<div class="ic-chip project-card reveal">
-<span class="ic-tag">C4</span>
-<h3>NPTEL Certificate</h3>
-<p>NPTEL course completion certificate.</p>
-<a href="certificates/nptel-result.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
-</div>
-</div>
+  <div class="section-head reveal">
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-sub">Professional certifications and achievements that validate my technical expertise</p>
+  </div>
+
+  <div class="card-grid cols-2">
+    <article class="card cert-card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-blue">☁️</span>
+        <div>
+          <h3>Azure AI Fundamentals</h3>
+          <p class="card-sub">Microsoft</p>
+          <time class="card-date"></time><!-- add the issue date here, e.g. March 2025 -->
+        </div>
+      </header>
+      <p>Microsoft Azure AI Fundamentals certification covering core AI concepts and Azure AI services.</p>
+      <h4>Skills Validated:</h4>
+      <div class="tag-row"><span>AI Workloads</span><span>Machine Learning</span><span>Computer Vision</span><span>NLP</span><span>Generative AI</span><span>Azure AI Services</span></div>
+      <a class="btn btn-blue btn-sm" href="certificates/azure-ai-fundamentals.pdf" target="_blank" rel="noopener noreferrer">✓ View Certificate ↗</a>
+    </article>
+
+    <article class="card cert-card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-green">🏢</span>
+        <div>
+          <h3>Deloitte Completion Certificate</h3>
+          <p class="card-sub">Deloitte</p>
+          <time class="card-date"></time><!-- add the issue date here, e.g. March 2025 -->
+        </div>
+      </header>
+      <p>Deloitte program completion certificate recognizing successful completion of the program.</p>
+      <h4>Skills Validated:</h4>
+      <div class="tag-row"><span>Problem Solving</span><span>Analytical Thinking</span><span>Professional Skills</span></div>
+      <a class="btn btn-green btn-sm" href="certificates/deloitte-certificate.pdf" target="_blank" rel="noopener noreferrer">✓ View Certificate ↗</a>
+    </article>
+
+    <article class="card cert-card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-purple">🤖</span>
+        <div>
+          <h3>Developing in Agentic AI Systems</h3>
+          <p class="card-sub">Microsoft Learn</p>
+          <time class="card-date"></time><!-- add the issue date here, e.g. March 2025 -->
+        </div>
+      </header>
+      <p>Microsoft Learn credential for Developing in Agentic AI Systems.</p>
+      <h4>Skills Validated:</h4>
+      <div class="tag-row"><span>Agentic AI</span><span>AI Agents</span><span>Azure AI</span></div>
+      <a class="btn btn-purple btn-sm" href="certificates/microsoft-agentic-ai.pdf" target="_blank" rel="noopener noreferrer">✓ View Certificate ↗</a>
+    </article>
+
+    <article class="card cert-card reveal">
+      <header class="card-head">
+        <span class="icon-tile t-orange">🎓</span>
+        <div>
+          <h3>NPTEL Certificate</h3>
+          <p class="card-sub">NPTEL</p>
+          <time class="card-date"></time><!-- add the issue date here, e.g. March 2025 -->
+        </div>
+      </header>
+      <p>NPTEL course completion certificate with examination result.</p>
+      <h4>Skills Validated:</h4>
+      <div class="tag-row"><span>Self-paced Learning</span><span>Course Completion</span><span>Examination</span></div>
+      <a class="btn btn-orange btn-sm" href="certificates/nptel-result.pdf" target="_blank" rel="noopener noreferrer">✓ View Certificate ↗</a>
+    </article>
+
+  </div>
 </section>
-<!-- Contact -->
+
+<!-- ================= CONTACT ================= -->
 <section id="contact">
-<p class="eyebrow reveal">J1 &nbsp;—&nbsp; I/O CONNECTOR</p>
-<h2 class="reveal">Contact Me</h2>
-<form id="contactForm" class="reveal">
-<input type="text" id="name" name="name" placeholder="Your Name" required>
-<input type="email" id="email" name="email" placeholder="Your Email" required>
-<textarea id="message" name="message" placeholder="Your Message" required></textarea>
-<button type="submit" id="sendBtn" class="btn-primary">Send Message</button>
-<p id="formStatus" class="form-status"></p>
-</form>
+  <div class="section-head reveal">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-sub">Ready to bring your ideas to life? Let's discuss how I can help you build amazing digital experiences.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <h3>Get In Touch</h3>
+      <p class="contact-intro">I'm actively seeking opportunities in <b class="c-copper">Full-Stack Development</b> and <b class="c-green">Electronics &amp; IoT</b>. Whether you have a project in mind or just want to chat about technology, I'd love to hear from you!</p>
+
+      <a class="info-card" href="mailto:sachinmaurya43570@gmail.com">
+        <span class="info-ico c-blue">✉</span>
+        <span><small>Email</small><b class="c-blue">sachinmaurya43570@gmail.com</b></span>
+      </a>
+      <a class="info-card" href="tel:+919580937395">
+        <span class="info-ico c-green">✆</span>
+        <span><small>Phone</small><b class="c-green">+91 9580937395</b></span>
+      </a>
+    </div>
+
+    <div class="contact-right card reveal">
+      <header class="card-head"><span class="icon-tile t-pink">✉️</span><h3>Send a Message</h3></header>
+      <form id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit" id="sendBtn" class="btn btn-gradient">Send Message</button>
+        <p id="formStatus" class="form-status"></p>
+      </form>
+      <div class="quick-actions">
+        <a class="btn btn-outline" href="mailto:sachinmaurya43570@gmail.com">✉ Send Email</a>
+        <a class="btn btn-outline" href="tel:+919580937395">✆ Call Now</a>
+      </div>
+      <p class="avail"><span class="dot-green"></span> Open to opportunities</p>
+    </div>
+  </div>
 </section>
+
+</main>
+
 <footer>
-<p>© 2026 Sachin Maurya &nbsp;·&nbsp; Board manufactured 2026 &nbsp;·&nbsp; Developer Portfolio</p>
+  <p>© 2026 Sachin Maurya &nbsp;·&nbsp; Board manufactured 2026 &nbsp;·&nbsp; Developer Portfolio</p>
 </footer>
-<script src="script.js"></script>
+
+<script src="script.js?v=6"></script>
 </body>
 </html>
